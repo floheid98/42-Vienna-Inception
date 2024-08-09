@@ -1,0 +1,43 @@
+networks:
+  inceptionet:
+    driver: bridge
+
+services:
+  nginx:
+    build: ./images/nginx
+    container_name: my_nginx
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
+    volumes:
+      - inception_www:/var/www/html
+    restart: always
+
+  wordpress:
+    build: ./images/wordpress
+    container_name: my_wordpress
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+
+
+volumes:
+  inception_db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fheid/data/inception_db
+
+  inception_www:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fheid/data/inception_www
