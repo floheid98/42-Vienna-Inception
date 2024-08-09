@@ -27,6 +27,26 @@ services:
       - inceptionet
     volumes:
       - inception_www:/var/www/html
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    restart: always
+
+  mariadb:
+    build: ./images/mariadb
+    container_name: my_mariadb
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+    volumes:
+      - inception_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
     restart: always
 
 
