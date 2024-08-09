@@ -1,0 +1,22 @@
+# use the latest version of debian as base image
+FROM debian:12.6
+
+# mention me as the image-maintainer
+LABEL maintainer="fheid@student.42vienna.com"
+
+# install php-fpm, php-mysql and wget
+RUN apt-get -y update && apt-get -y install php-fpm php-mysql wget
+
+# download wp-cli, make it executable and move it in PATH
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+
+# copy nginx-configfile and index.html from host to image-vm
+COPY ./files/setup.sh /setup.sh
+
+# expose port 9000 as connection to nginx
+EXPOSE 9000
+
+# execute setup-bash script
+CMD ["/bin/bash", "setup.sh"]
