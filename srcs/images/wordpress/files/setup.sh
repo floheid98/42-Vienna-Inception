@@ -10,7 +10,7 @@ wp plugin install redis-cache --activate --allow-root
 wp redis enable --allow-root
 
 wp config set WP_REDIS_HOST redis --allow-root
-wp config set WP_REDIS_PORT 6379 --allow-root
+wp config set WP_REDIS_PORT 6380 --allow-root
 
 wp config set DB_NAME $DB_NAME --allow-root
 wp config set DB_USER $DB_USER --allow-root
