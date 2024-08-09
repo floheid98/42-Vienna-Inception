@@ -1,5 +1,5 @@
 # use the latest version of debian as base image
-FROM debian:12.6
+FROM debian:11
 
 # mention me as the image-maintainer
 LABEL maintainer="fheid@student.42vienna.com"
