@@ -1,5 +1,5 @@
 # use the latest version of debian as base image
-FROM debian:12.6
+FROM debian:11
 
 # mention me as the image-maintainer
 LABEL maintainer="fheid@student.42vienna.com"
@@ -13,7 +13,7 @@ RUN openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout /etc/ssl/nginx/n
 COPY ./files/default /etc/nginx/sites-enabled/default
 COPY ./files/index.html /var/www/html/index.html
 
-# expose port 443 as entrypoint to the image
+# expose port 443 as entrypoint into the infrastructure
 EXPOSE 443
 
 # execute nginx and make sure that it is not detached into background
