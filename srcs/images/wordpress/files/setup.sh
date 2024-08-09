@@ -20,5 +20,5 @@ wp config set WP_CACHE true --allow-root
 
 wp user create $WP_USER $WP_EMAIL --user_pass=$WP_PASSWORD --role=$WP_ROLE --allow-root
 
-php-fpm8.2 -F
+php-fpm7.4 -F
 
