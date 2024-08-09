@@ -11,7 +11,7 @@ RUN apt-get -y update && apt-get -y install mariadb-server
 RUN echo "START"
 COPY ./files/healthcheck.sh /healthcheck.sh
 COPY ./files/setup.sh /setup.sh
-COPY ./files/my.cnf /etc/mysql/my.conf
+COPY ./files/my.cnf /etc/mysql/my.cnf
 COPY ./files/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 RUN echo "ENDE"
 
