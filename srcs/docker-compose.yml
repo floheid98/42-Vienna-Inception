@@ -25,6 +25,9 @@ services:
       - .env
     networks:
       - inceptionet
+    volumes:
+      - inception_www:/var/www/html
+    restart: always
 
 
 volumes:
