@@ -42,7 +42,7 @@ services:
     volumes:
       - inception_db:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "healthcheck.sh"]
+      test: ["CMD-SHELL", "/healthcheck.sh"]
       interval: 10s
       timeout: 5s
       retries: 3

@@ -1,10 +1,17 @@
-#!/bin/bash
+echo "Starting MariaDB setup script!"
 
-# if necessary: create database and user. @'%' means that the user can connect from any host
+# mysql -u root << EOF
+# CREATE DATABASE IF NOT EXISTS $DB_NAME;
+# USE $DB_NAME;
+# CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
+# GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';
+# FLUSH PRIVILEGES;
+# EOF
+
 mysql -u root << EOF
-CREATE DATABASE IF NOT EXISTS $DB_NAME;
-USE $DB_NAME;
-CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
-GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';
+CREATE DATABASE IF NOT EXISTS wp_database;
+USE wp_database;
+CREATE USER IF NOT EXISTS 'wpuser'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON wp_database.* TO 'wpuser'@'%';
 FLUSH PRIVILEGES;
 EOF
