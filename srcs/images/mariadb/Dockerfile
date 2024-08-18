@@ -9,7 +9,6 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get -y install mariadb-server
 
 # copy healthcheck.sh, setup.sh and config-files from host to image-vm
 COPY ./files/healthcheck.sh /healthcheck.sh
-COPY ./files/setup.sh /setup.sh
 COPY ./files/my.cnf /etc/mysql/my.cnf
 COPY ./files/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
