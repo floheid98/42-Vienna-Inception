@@ -11,7 +11,6 @@ RUN openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout /etc/ssl/nginx/n
 
 # copy nginx-configfile and index.html from host to image-vm
 COPY ./files/default /etc/nginx/sites-enabled/default
-COPY ./files/index.html /var/www/html/index.html
 
 # expose port 443 as entrypoint into the infrastructure
 EXPOSE 443
