@@ -2,7 +2,7 @@ server {
 
     listen 443 ssl;
     
-    root /var/www/html;
+    root /var/www/html/wordpress;
     index index.php index.html;
     server_name _;
 
@@ -11,8 +11,16 @@ server {
 
     ssl_protocols TLSv1.3;
 
-    location / {
+    location /
+    {
         try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$
+    {
+        include snippets/fastcgi-php.conf;
+        include fastcgi_params;
+        fastcgi_pass wordpress:9000;
     }
     
 }
