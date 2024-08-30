@@ -4,7 +4,7 @@ buildnc:
 	docker compose -f ./srcs/docker-compose.yml build --no-cache
 up: 
 	docker compose -f ./srcs/docker-compose.yml up -d
-upc:
+upnc:
 	docker compose -f ./srcs/docker-compose.yml build --no-cache
 	docker compose -f ./srcs/docker-compose.yml up -d
 down: 
@@ -15,4 +15,4 @@ clean:
 	@docker rm ${shell docker ps -a -q}
 	@docker rmi ${shell docker images -q}
 
-.PHONY: build up upc down clean
+.PHONY: build buildnc up upnc down clean
