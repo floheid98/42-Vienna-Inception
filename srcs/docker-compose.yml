@@ -58,6 +58,17 @@ services:
       - inceptionet
     restart: always
 
+  adminer:
+    build: ./requirements/bonus/adminer
+    container_name: my_adminer
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+    volumes:
+      - inception_www:/var/www/html
+    restart: always
+
 volumes:
   inception_db:
     driver: local
