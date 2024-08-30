@@ -4,7 +4,7 @@ networks:
 
 services:
   nginx:
-    build: ./images/nginx
+    build: ./requirements/nginx
     container_name: my_nginx
     env_file:
       - .env
@@ -19,7 +19,7 @@ services:
     restart: always
 
   wordpress:
-    build: ./images/wordpress
+    build: ./requirements/wordpress
     container_name: my_wordpress
     env_file:
       - .env
@@ -33,7 +33,7 @@ services:
     restart: always
 
   mariadb:
-    build: ./images/mariadb
+    build: ./requirements/mariadb
     container_name: my_mariadb
     env_file:
       - .env

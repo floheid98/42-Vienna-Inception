@@ -13,8 +13,8 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
 # copy nginx-configfile and index.html from host to image-vm
-COPY ./files/setup.sh /setup.sh
-COPY ./files/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY ./tools/setup.sh /setup.sh
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 RUN mkdir /run/php
 

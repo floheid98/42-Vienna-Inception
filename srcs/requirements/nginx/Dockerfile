@@ -10,7 +10,7 @@ RUN mkdir -p /etc/ssl/nginx/
 RUN openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout /etc/ssl/nginx/nginx.key -out /etc/ssl/nginx/nginx.crt -subj "/C=AU/ST=VIENNA/L=VIENNA/O=42/CN=fheid"
 
 # copy nginx-configfile and index.html from host to image-vm
-COPY ./files/default /etc/nginx/sites-enabled/default
+COPY ./conf/default /etc/nginx/sites-enabled/default
 
 # expose port 443 as entrypoint into the infrastructure
 EXPOSE 443
