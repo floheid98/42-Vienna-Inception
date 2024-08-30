@@ -14,6 +14,9 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 
 # copy nginx-configfile and index.html from host to image-vm
 COPY ./files/setup.sh /setup.sh
+COPY ./files/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+
+RUN mkdir /run/php
 
 # expose port 9000 as connection to nginx
 EXPOSE 9000
