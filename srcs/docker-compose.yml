@@ -49,6 +49,14 @@ services:
       start_period: 10s
     restart: always
 
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: my_redis
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+    restart: always
 
 volumes:
   inception_db:
