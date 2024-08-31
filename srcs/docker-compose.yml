@@ -67,6 +67,13 @@ services:
       - inceptionet
     restart: always
 
+  website:
+    build: ./requirements/bonus/website
+    container_name: my_website
+    ports:
+      - "8070:8070"
+    restart: always
+
 volumes:
   inception_db:
     driver: local
