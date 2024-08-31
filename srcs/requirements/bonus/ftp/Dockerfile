@@ -11,7 +11,7 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get -y install vsftpd
 COPY ./tools/script.sh /script.sh
 COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 
-# expose standart ftp port 21 and ports 10000-10100
+# expose standart ftp port 21 and ports 10000-10099
 EXPOSE 21
 EXPOSE 10000-10099
 
