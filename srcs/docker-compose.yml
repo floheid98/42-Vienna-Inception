@@ -74,6 +74,20 @@ services:
       - "8070:8070"
     restart: always
 
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: my_ftp
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+    ports:
+      - "21:21"
+      - "10000-10099:10000-10099"
+    volumes:
+      - inception_www:/var/www/html
+    restart: always
+
 volumes:
   inception_db:
     driver: local
