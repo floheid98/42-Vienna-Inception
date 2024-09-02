@@ -83,7 +83,7 @@ services:
       - inceptionet
     ports:
       - "21:21"
-      - "10000-10099:10000-10099"
+      - "64000-64321:64000-64321"
     volumes:
       - inception_www:/var/www/html
     restart: always

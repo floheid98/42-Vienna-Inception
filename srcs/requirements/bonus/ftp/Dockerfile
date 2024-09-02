@@ -13,7 +13,7 @@ COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 
 # expose standart ftp port 21 and ports 10000-10099
 EXPOSE 21
-EXPOSE 10000-10099
+EXPOSE 64000-64321
 
 # execute php with adminer
 CMD ["/bin/bash", "script.sh"]
