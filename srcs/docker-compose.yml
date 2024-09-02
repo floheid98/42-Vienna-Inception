@@ -88,6 +88,21 @@ services:
       - inception_www:/var/www/html
     restart: always
 
+  grafana:
+    build: ./requirements/bonus/grafana
+    container_name: my_grafana
+    env_file:
+      - .env
+    networks:
+      - inceptionet
+    ports:
+      - "3000:3000"
+    volumes:
+      - inception_grafana:/var/lib/grafana
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
 volumes:
   inception_db:
     driver: local
@@ -102,3 +117,10 @@ volumes:
       type: none
       o: bind
       device: /home/fheid/data/inception_www
+
+  inception_grafana:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fheid/data/inception_grafana
