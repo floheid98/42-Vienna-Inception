@@ -15,5 +15,5 @@ COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 EXPOSE 21
 EXPOSE 64000-64321
 
-# execute php with adminer
+# execute bash script
 CMD ["/bin/bash", "script.sh"]
