@@ -10,7 +10,7 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get -y install redis-server
 # copy config-file from host to image-vm
 COPY ./conf/redis.conf /etc/redis/redis.conf
 
-# expose port 6379 as connection to wordpress
+# expose port 6379
 EXPOSE 6379
 
 # execute setup-bash script
