@@ -16,11 +16,8 @@ RUN apt-get install -y grafana
 
 ENV HOME=/usr/share/grafana
 
-# copy config files
+# copy datasource config file
 COPY ./conf/my_datasource.yml /usr/share/grafana/conf/provisioning/datasources/my_datasource.yml
-COPY ./conf/my_dashboard.json /usr/share/grafana/conf/provisioning/dashboards/my_dashboard.json
-COPY ./conf/defaults.ini /usr/share/grafana/conf/provisioning/dashboards/my_dashboard.json
-
 
 # Expose port 3000
 EXPOSE 3000
