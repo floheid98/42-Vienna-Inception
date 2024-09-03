@@ -100,8 +100,6 @@ services:
       - inceptionet
     ports:
       - "3000:3000"
-    volumes:
-      - inception_grafana:/var/lib/grafana
     depends_on:
       mariadb:
         condition: service_healthy
@@ -120,10 +118,3 @@ volumes:
       type: none
       o: bind
       device: /home/fheid/data/inception_www
-
-  inception_grafana:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/fheid/data/inception_grafana
