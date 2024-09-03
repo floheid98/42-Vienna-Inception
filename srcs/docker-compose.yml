@@ -86,6 +86,9 @@ services:
       - "64000-64321:64000-64321"
     volumes:
       - inception_www:/var/www/html
+    depends_on:
+      wordpress:
+        condition: service_started
     restart: always
 
   grafana:
