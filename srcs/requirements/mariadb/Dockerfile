@@ -14,7 +14,7 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 RUN chmod +x /healthcheck.sh
 
-# expose port 3306 as connection to wordpress
+# expose port 3306
 EXPOSE 3306
 
 CMD ["mysqld_safe"]
