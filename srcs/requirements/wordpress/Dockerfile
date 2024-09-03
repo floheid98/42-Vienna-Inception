@@ -18,7 +18,7 @@ COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 RUN mkdir /run/php
 
-# expose port 9000 as connection to nginx
+# expose port 9000
 EXPOSE 9000
 
 # execute setup-bash script
